@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Opening UBI Attendance</title>
+
 <script>
 function openApp() {
 
@@ -9,20 +12,31 @@ function openApp() {
     const page = params.get("page") || "attendance";
     const route = params.get("route") || "home";
 
-    const appUrl = 
-        "ubitechattendance://" + page + "?route=" + route;
 
+    const appUrl =
+        "ubitechattendance://" +
+        page +
+        "?route=" +
+        encodeURIComponent(route);
+
+
+    // Open Flutter app
     window.location.href = appUrl;
 
 
+    // Fallback if app is not installed
     setTimeout(function () {
+
         window.location.href =
-        "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
-    }, 2000);
+            "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
+
+    }, 2500);
 }
+
 
 window.onload = openApp;
 </script>
+
 </head>
 
 <body>
