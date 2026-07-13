@@ -2,15 +2,29 @@
 <html>
 <head>
 <script>
-window.location.href =
-"ubitechattendance://attendance?route=designation";
+function openApp() {
 
-setTimeout(function () {
-    window.location.href =
-    "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
-}, 2000);
+    const params = new URLSearchParams(window.location.search);
+
+    const page = params.get("page") || "attendance";
+    const route = params.get("route") || "home";
+
+    const appUrl = 
+        "ubitechattendance://" + page + "?route=" + route;
+
+    window.location.href = appUrl;
+
+
+    setTimeout(function () {
+        window.location.href =
+        "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
+    }, 2000);
+}
+
+window.onload = openApp;
 </script>
 </head>
+
 <body>
 Opening UBI Attendance...
 </body>
