@@ -1,1 +1,13 @@
 
+[{
+  "relation": [      
+    "delegate_permission/common.handle_all_urls",
+    "delegate_permission/common.get_login_creds"
+],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "org.ubitech.attendance",
+    "sha256_cert_fingerprints":
+    ["DB:6D:CE:D7:EC:FC:B9:C4:1B:FB:16:F5:DE:CB:3A:EE:64:A2:3A:7D:6B:68:39:6D:3D:E9:9C:5A:25:BB:68:7A"]
+  }
+}]
