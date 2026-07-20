@@ -62,7 +62,7 @@ function openApp() {
     else if (appName === "ubiHRM") {
 
         appUrl =
-            "ubitechhrm://" +
+            "ubitechattendance://" +
             page +
             "?route=" +
             encodeURIComponent(route);
@@ -79,7 +79,12 @@ function openApp() {
     }
     else {
 
-        alert("Invalid App");
+       appUrl =
+            "ubitechattendance://" +
+            page +
+            "?route=" +
+            encodeURIComponent(route);
+
 
         return;
     }
@@ -95,13 +100,13 @@ function openApp() {
         if(appName === "ubiHRM") {
 
             window.location.href =
-            "https://play.google.com/store/apps/details?id=com.ubitech.hrm";
+            "https://play.google.com/store/apps/details?id=com.ubihrm.ubihrm";
 
         } 
-        else if(appName === "ubiVisitor") {
+        else if(appName === "ubiSales") {
 
             window.location.href =
-            "https://play.google.com/store/apps/details?id=com.ubitech.visitor";
+            "https://play.google.com/store/apps/details?id=org.ubitech.sales";
 
         }
         else {
