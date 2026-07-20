@@ -2,35 +2,116 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Opening UBI Attendance</title>
+<title>Opening UBI App</title>
 
 <script>
+// function openApp() {
+
+//     const params = new URLSearchParams(window.location.search);
+
+//     const page = params.get("page") || "attendance";
+//     const route = params.get("route") || "home";
+
+
+//     const appUrl =
+//         "ubitechattendance://" +
+//         page +
+//         "?route=" +
+//         encodeURIComponent(route);
+
+
+//     // Open Flutter app
+//     window.location.href = appUrl;
+
+
+//     // Fallback if app is not installed
+//     setTimeout(function () {
+
+//         window.location.href =
+//             "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
+
+//     }, 2500);
+// }
+
+
+// window.onload = openApp;
+// </script>
+
+    <script>
 function openApp() {
 
     const params = new URLSearchParams(window.location.search);
 
     const page = params.get("page") || "attendance";
     const route = params.get("route") || "home";
+    const appName = params.get("appName") || "ubiAttendance";
 
 
-    const appUrl =
-        "ubitechattendance://" +
-        page +
-        "?route=" +
-        encodeURIComponent(route);
+    let appUrl = "";
 
 
-    // Open Flutter app
+    if (appName === "ubiAttendance") {
+
+        appUrl =
+            "ubitechattendance://" +
+            page +
+            "?route=" +
+            encodeURIComponent(route);
+
+    } 
+    else if (appName === "ubiHRM") {
+
+        appUrl =
+            "ubitechhrm://" +
+            page +
+            "?route=" +
+            encodeURIComponent(route);
+
+    } 
+    else if (appName === "ubiVisitor") {
+
+        appUrl =
+            "ubitechvisitor://" +
+            page +
+            "?route=" +
+            encodeURIComponent(route);
+
+    }
+    else {
+
+        alert("Invalid App");
+
+        return;
+    }
+
+
+    // Open selected app
     window.location.href = appUrl;
 
 
-    // Fallback if app is not installed
+    // Play Store fallback
     setTimeout(function () {
 
-        window.location.href =
+        if(appName === "ubiHRM") {
+
+            window.location.href =
+            "https://play.google.com/store/apps/details?id=com.ubitech.hrm";
+
+        } 
+        else if(appName === "ubiVisitor") {
+
+            window.location.href =
+            "https://play.google.com/store/apps/details?id=com.ubitech.visitor";
+
+        }
+        else {
+
+            window.location.href =
             "https://play.google.com/store/apps/details?id=org.ubitech.attendance";
 
-    }, 2500);
+        }
+
+    },2500);
 }
 
 
